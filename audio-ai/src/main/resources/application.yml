@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: audio-ai
+  ai:
+    openai:
+      api-key: ${api-key}
+      chat:
+        options:
+          model: gpt-4o-audio-preview
+          temperature: 0.7
+          max-tokens: 2000
+
+server:
+  port: 8081
