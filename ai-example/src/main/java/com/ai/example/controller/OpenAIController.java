@@ -1,7 +1,7 @@
 package com.ai.example.controller;
 
 import com.ai.example.dto.ChatRequest;
-import com.ai.example.dto.ChatResponse;
+import com.ai.example.dto.AiChatResponse;
 import com.ai.example.dto.StreamChatRequest;
 import com.ai.example.service.OpenAiService;
 import org.springframework.http.MediaType;
@@ -27,7 +27,7 @@ public class OpenAIController {
      * Body: { "message": "Your question here" }
      */
     @PostMapping("/simple")
-    public ChatResponse simpleChat(@RequestBody Map<String, String> request) {
+    public AiChatResponse simpleChat(@RequestBody Map<String, String> request) {
         String message = request.get("message");
         return openAiService.chat(message);
     }
@@ -38,7 +38,7 @@ public class OpenAIController {
      * Body: { "message": "Your question", "temperature": 0.7, "maxTokens": 1000 }
      */
     @PostMapping("/custom")
-    public ChatResponse customChat(@RequestBody ChatRequest request) {
+    public AiChatResponse customChat(@RequestBody ChatRequest request) {
         return openAiService.chatWithOptions(request);
     }
     
@@ -58,7 +58,7 @@ public class OpenAIController {
      * Body: { "message": "User question", "systemPrompt": "You are a helpful assistant..." }
      */
     @PostMapping("/system-prompt")
-    public ChatResponse chatWithSystemPrompt(@RequestBody StreamChatRequest request) {
+    public AiChatResponse chatWithSystemPrompt(@RequestBody StreamChatRequest request) {
         return openAiService.chatWithSystemPrompt(
                 request.getMessage(), 
                 request.getSystemPrompt()
@@ -71,7 +71,7 @@ public class OpenAIController {
      * Body: { "messages": ["First message", "Second message", "Third message"] }
      */
     @PostMapping("/conversation")
-    public ChatResponse multiTurnChat(@RequestBody Map<String, List<String>> request) {
+    public AiChatResponse multiTurnChat(@RequestBody Map<String, List<String>> request) {
         List<String> messages = request.get("messages");
         return openAiService.multiTurnChat(messages);
     }

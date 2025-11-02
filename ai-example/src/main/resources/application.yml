@@ -6,9 +6,8 @@ spring:
       api-key: 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
       chat:
         options:
-          model: gpt-5-nano
-          temperature: 0.7
-          max-tokens: 1000
+          model: gpt-5
+          temperature: 1
 
 server:
   port: 8080

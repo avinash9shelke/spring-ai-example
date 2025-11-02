@@ -1,19 +1,19 @@
 package com.ai.example.dto;
 
-public class ChatResponse {
+public class AiChatResponse {
     
     private String response;
     private String model;
     private Integer tokensUsed;
     
-    public ChatResponse() {
+    public AiChatResponse() {
     }
     
-    public ChatResponse(String response) {
+    public AiChatResponse(String response) {
         this.response = response;
     }
     
-    public ChatResponse(String response, String model, Integer tokensUsed) {
+    public AiChatResponse(String response, String model, Integer tokensUsed) {
         this.response = response;
         this.model = model;
         this.tokensUsed = tokensUsed;
