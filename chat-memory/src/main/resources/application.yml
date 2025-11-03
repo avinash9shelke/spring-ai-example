@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: chat-memory-app
+  ai:
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
+    openai:
+      api-key: test-key
+      chat:
+        options:
+          model: gpt-5
+          temperature: 1
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/chat-memory
+    username: dev
+    password: dev
+    driver-class-name: org.postgresql.Driver
+  
+  sql:
+    init:
+      mode: always
+      platform: postgresql
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
