@@ -1,0 +1,10 @@
+spring:
+  application:
+     name: spring-ai-embeddings
+  ai:
+    mistralai:
+      api-key: ${api-key}
+      embedding:
+        options:
+          model: mistral-embed
+
